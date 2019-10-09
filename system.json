@@ -1,0 +1,9 @@
+{
+    "auth": true,
+    "description": "",
+    "messaging_url": "staging.clearblade.com:1883",
+    "name": "SynapticNode",
+    "platform_url": "https://staging.clearblade.com",
+    "system_key": "c69cded80b948ca3c98edeb08623",
+    "system_secret": "C69CDED80B9EA8E6D286B6FCFA10"
+}
