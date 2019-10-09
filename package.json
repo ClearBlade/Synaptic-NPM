@@ -1,0 +1,58 @@
+{
+  "author": "Rajas Deshpande <rdeshpande@clearblade.com>",
+  "description": "Synaptic NPM",
+  "asset_types": [
+    "System",
+    "Code Libraries",
+    "Code Services",
+    "Portals",
+    "Collections",
+    "Triggers",
+    "Adapters",
+    "Roles",
+    "Timers",
+    "Plugins",
+    "Users",
+    "Edges",
+    "Devices"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "Naive Bayes",
+    "Classification",
+    "Machine Learning"
+  ],
+  "prog_lang": [
+    "javascript"
+  ],
+  "cloud": [],
+  "things": [],
+  "domains": [
+    "Artificial Intelligence",
+    "Predictive Maintenance"
+  ],
+  "protocols": [],
+  "gateways": [],
+  "name": "Synaptic-NPM",
+  "private": false,
+  "image_url": "",
+  "dependencies": {
+    "some_clearblade_lib": "latest",
+    "http": "latest"
+  },
+  "scripts": {
+    "jsdoc": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClearBlade/Synaptic-NPM"
+  },
+  "bugs": {
+    "url": "https://github.com/ClearBlade/Synaptic-NPM"
+  },
+  "homepage": "https://github.com/ClearBlade/Synaptic-NPM",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1"
+  }
+}
