@@ -36,7 +36,7 @@
   "gateways": [],
   "name": "Synaptic-NPM",
   "private": false,
-  "image_url": "https://i.imgur.com/ufivhka.png",
+  "image_url": "https://i.imgur.com/Mh9s7c5.png",
   "dependencies": {
     "some_clearblade_lib": "latest",
     "http": "latest"
