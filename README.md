@@ -1,205 +1,137 @@
-# synaptic
+# Synaptic 
 
-Synaptic is a javascript neural network library for **node.js** and the **browser**, its generalized algorithm is architecture-free, so you can build and train basically any type of first order or even [second order neural network](http://en.wikipedia.org/wiki/Recurrent_neural_network#Second_Order_Recurrent_Neural_Network) architectures.
+## Contents
 
-This library includes a few built-in architectures like [multilayer perceptrons](http://en.wikipedia.org/wiki/Multilayer_perceptron), [multilayer long-short term memory](http://en.wikipedia.org/wiki/Long_short_term_memory) networks (LSTM), [liquid state machines](http://en.wikipedia.org/wiki/Liquid_state_machine) or [Hopfield](http://en.wikipedia.org/wiki/Hopfield_network) networks, and a trainer capable of training any given network, which includes built-in training tasks/tests like solving an XOR, completing a Distracted Sequence Recall task or an [Embedded Reber Grammar](http://www.willamette.edu/~gorr/classes/cs449/reber.html) test, so you can easily test and compare the performance of different architectures.
-
-
-The algorithm implemented by this library has been taken from Derek D. Monner's paper:
-
-[A generalized LSTM-like training algorithm for second-order recurrent neural networks](http://www.overcomplete.net/papers/nn2012.pdf)
-
-
-There are references to the equations in that paper commented through the source code.
-
-#### Introduction
-
-If you have no prior knowledge about Neural Networks, you should start by [reading this guide](https://github.com/cazala/synaptic/wiki/Neural-Networks-101).
-
-
-If you want a practical example on how to feed data to a neural network, then take a look at [this article](https://github.com/cazala/synaptic/wiki/Normalization-101).
-
-You may also want to take a look at [this article](http://blog.webkid.io/neural-networks-in-javascript/).
-
-#### Demos
-
-- [Solve an XOR](http://caza.la/synaptic/#/xor)
-- [Discrete Sequence Recall Task](http://caza.la/synaptic/#/dsr)
-- [Learn Image Filters](http://caza.la/synaptic/#/image-filters)
-- [Paint an Image](http://caza.la/synaptic/#/paint-an-image)
-- [Self Organizing Map](http://caza.la/synaptic/#/self-organizing-map)
-- [Read from Wikipedia](http://caza.la/synaptic/#/wikipedia)
-- [Creating a Simple Neural Network (Video)](https://scrimba.com/casts/cast-1980)
-- [Learn how to shoot](https://sta-ger.bitbucket.io/apps/bot/index.html)
-- [Beer glass classifier](https://sta-ger.bitbucket.io/apps/beer/index.html)
-
-The source code of these demos can be found in [this branch](https://github.com/cazala/synaptic/tree/gh-pages/scripts).
-
-#### Getting started
-
-- [Neurons](https://github.com/cazala/synaptic/wiki/Neurons/)
-- [Layers](https://github.com/cazala/synaptic/wiki/Layers/)
-- [Networks](https://github.com/cazala/synaptic/wiki/Networks/)
-- [Trainer](https://github.com/cazala/synaptic/wiki/Trainer/)
-- [Architect](https://github.com/cazala/synaptic/wiki/Architect/)
-
-To try out the examples, checkout the [gh-pages](https://github.com/cazala/synaptic/tree/gh-pages) branch.
-
-`git checkout gh-pages`
-
-#### Other languages
-
-This README is also available in other languages.
-
-- [Chinese Simplified | 中文文档](https://github.com/cazala/synaptic/blob/master/README_Zh-CN.md), thanks to [@noraincode](https://github.com/noraincode).
-- [Chinese Traditional | 繁體中文](https://github.com/cazala/synaptic/blob/master/README_Zh-TW.md), by [@NoobTW](https://github.com/noobtw).
-- [Japanese | 日本語](https://github.com/cazala/synaptic/blob/master/README_Ja-JP.md), thanks to [@oshirogo](https://github.com/dscripps).  
+### [Overview](#overview-1)
+### [System Installation](#system-installation)
+### [Steps for Transpilation to ES5](#transpilation-to-es5)
+### [Usage](#usage-1)
+### [Assets](#assets-1)
 
 ## Overview
 
-### Installation
+Neural Networks can be implemented using the Synaptic library to run on the ClearBlade Platform for classification purposes. Synaptic is a javascript neural network library for node.js and the browser, its generalized algorithm is architecture-free, so you can build and train basically any type of first order or even [second order neural network architectures](https://en.wikipedia.org/wiki/Recurrent_neural_network#Second_Order_Recurrent_Neural_Network). 
 
-##### ClearBlade
+This library includes a few built-in architectures like [multilayer perceptrons](https://en.wikipedia.org/wiki/Multilayer_perceptron), [multilayer long-short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) networks (LSTM), [liquid state machines](https://en.wikipedia.org/wiki/Liquid_state_machine) or [Hopfield](https://en.wikipedia.org/wiki/Hopfield_network) networks, and a trainer capable of training any given network.
 
-Install the ipm by going in the ClearBlade console. Then refer the [example code](code/services/SynapticSmokeTest/SynapticSmokeTest.js) which shows how to invoke the library.
+If you have no prior knowledge about Neural Networks, you should start by reading this [guide](https://github.com/cazala/synaptic/wiki/Neural-Networks-101).
 
+If you want a practical example on how to feed data to a neural network, then take a look at this [article](https://github.com/cazala/synaptic/wiki/Normalization-101).
 
-##### In node
+[Neural Networks of JavaScript] (https://webkid.io/blog/neural-networks-in-javascript/)
 
-You can install synaptic with [npm](http://npmjs.org):
+This is an ipm package, which contains one or more reusable assets within the ipm Community. The 'package.json' in this repo is a ipm spec's package.json, [here](https://docs.clearblade.com/v/3/6-ipm/spec), which is a superset of npm's package.json spec, [here](https://docs.npmjs.com/files/package.json).
 
-```cmd
-npm install synaptic --save
+[Browse ipm Packages](https://ipm.clearblade.com)
+
+## System Installation
+
+1. Open the ClearBlade Platform and enter your login credentials
+```
+https://platform.clearblade.com/
+```
+2. Click on **Add System** -> **Advanced** and copy the link of this repository in the box.
+```
+https://github.com/ClearBlade/brain-js
+```
+3. Click **Create**
+4. You can now access this system in the platform.
+
+## Transpilation to ES5
+
+Follow these [steps](https://github.com/ClearBlade/Machine-Learning-Node-Libraries/blob/master/README.md#steps-for-transpilation-to-es5-1) for transpilation of any NPM package to ES5 so that the NPM package can be imported as a library in the clearblade code engine.
+
+## Usage
+
+- This IPM package consists of a Neural Networks Library that can be imported in the ClearBlade Platform in order to train and test machine learning models on the platform.
+
+- This library currently supports implementation of 8 types of neural networks which are
+  - brain.NeuralNetwork - Feedforward Neural Network with backpropagation
+  - brain.NeuralNetworkGPU - Feedforward Neural Network with backpropagation, GPU version
+  - brain.recurrent.RNNTimeStep - Time Step Recurrent Neural Network or "RNN"
+  - brain.recurrent.LSTMTimeStep - Time Step Long Short Term Memory Neural Network or "LSTM"
+  - brain.recurrent.GRUTimeStep - Time Step Gated Recurrent Unit or "GRU"
+  - brain.recurrent.RNN - Recurrent Neural Network or "RNN"
+  - brain.recurrent.LSTM - Long Short Term Memory Neural Network or "LSTM"
+  - brain.recurrent.GRU - Gated Recurrent Unit or "GRU"
+  - [Why different types of Neural Networks?](https://github.com/BrainJS/brain.js#why-different-neural-network-types)
+
+- A brief tutorial about how to design neural networks with the Brain-JS library can be found [here](https://scrimba.com/g/gneuralnetworks)
+
+- The following code snippet loads the Brain JS library and allows your code to access functionality of the library APIs via the **brain** variable.
+
+``` javascript
+  var brain = BrainJS();
 ```
 
-##### In the browser
+- Once we define the **brain** variable, we configure the neural networks by providing different hyperparameters. The hyperparameters can be adjusted according to the user to get the best classification accuracy. There are different hyperparameters that can be provided. 
+  - In this example, we have provided two hyperparameters viz. **activation** which introduces non-linearity. There are currently four supported activation functions: sigmoid (default), relu, leaky-relu, tanh. 
+  -  The second hyperparameter is **hiddenLayers** which defines the number of neurons in the hidden layers. In this case, there are 2 hidden layers and there are 64 neurons in the first layer and 128 neurons in the second layer.
 
-You can install synaptic with [bower](http://bower.io):
-
-```cmd
-bower install synaptic
+``` javascript
+  var net = new brain.NeuralNetwork({
+    activation: "relu",
+    hiddenLayers: [64, 128]
+  });
 ```
 
-Or you can simply use the CDN link, kindly provided by [CDNjs](https://cdnjs.com/)
+- More options for hyperparameters can be found [here](https://github.com/BrainJS/brain.js#examples). 
+ 
+- After configuring the neural network, the training data can be set up as shown below. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
 
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script>
+``` javascript
+  var trainingData = [
+    { input : { power: 1350, temperature: 73.4, accelerometer: 0.0683 }, output: { not_required : 0 } },
+    { input : { power: 1350, temperature: 73.4, accelerometer: 0.0685 }, output: { not_required : 0 } }, 
+    { input : { power: 1532, temperature: 83.1, accelerometer: 0.5272 }, output: { not_required : 0 } },
+    { input : { power: 1710, temperature: 77.3, accelerometer: 1.7210 }, output: { required : 1 } }, 
+    { input : { power: 1200, temperature: 76.6, accelerometer: 0.0688 }, output: { not_required : 0 } },
+    { input : { power: 1820, temperature: 82.1, accelerometer: 0.4333 }, output: { required : 1 } },
+    { input : { power: 1421, temperature: 75.4, accelerometer:0.0695 }, output: { not_required : 0 } },
+    { input : { power: 1800, temperature: 95.1, accelerometer: 1.9000 }, output: { required : 1 } },
+    { input : { power: 1520, temperature: 82.4, accelerometer: 0.4272 }, output: { not_required : 0 } },
+    { input : { power: 1740, temperature: 95.0, accelerometer: 1.7150 }, output: { required : 1 } },
+  ]
 ```
 
-### Usage
+- Using this training data, train the classifier as follows. Different training options that can be given are prrovided [here](https://github.com/BrainJS/brain.js#training-options)
 
-```javascript
-var synaptic = require('synaptic'); // this line is not needed in the browser
-var Neuron = synaptic.Neuron,
-	Layer = synaptic.Layer,
-	Network = synaptic.Network,
-	Trainer = synaptic.Trainer,
-	Architect = synaptic.Architect;
+``` javascript
+  net.train( 
+    trainingData,     
+    {
+      iterations: 100,
+      learningRate: 0.1,
+      log: true,
+      logPeriod: 10
+    }
+  );
 ```
 
-Now you can start to create networks, train them, or use built-in networks from the [Architect](https://github.com/cazala/synaptic/wiki/Architect/).
+- The output after training of the model:
 
-### Examples
-
-##### Perceptron
-
-This is how you can create a simple **perceptron**:
-
-![perceptron](http://www.codeproject.com/KB/dotnet/predictor/network.jpg).
-
-```javascript
-function Perceptron(input, hidden, output)
+```
 {
-	// create the layers
-	var inputLayer = new Layer(input);
-	var hiddenLayer = new Layer(hidden);
-	var outputLayer = new Layer(output);
-
-	// connect the layers
-	inputLayer.project(hiddenLayer);
-	hiddenLayer.project(outputLayer);
-
-	// set the layers
-	this.set({
-		input: inputLayer,
-		hidden: [hiddenLayer],
-		output: outputLayer
-	});
+  error: 0.0039139985510105032,  // training error
+  iterations: 406                // training iterations
 }
-
-// extend the prototype chain
-Perceptron.prototype = new Network();
-Perceptron.prototype.constructor = Perceptron;
 ```
 
-Now you can test your new network by creating a trainer and teaching the perceptron to learn an XOR
-
-```javascript
-var myPerceptron = new Perceptron(2,3,1);
-var myTrainer = new Trainer(myPerceptron);
-
-myTrainer.XOR(); // { error: 0.004998819355993572, iterations: 21871, time: 356 }
-
-myPerceptron.activate([0,0]); // 0.0268581547421616
-myPerceptron.activate([1,0]); // 0.9829673642853368
-myPerceptron.activate([0,1]); // 0.9831714267395621
-myPerceptron.activate([1,1]); // 0.02128894618097928
+- Once the classifer is trained, predict for a given set of sensor values, if a maintenance is required or not.
+``` javascript
+  var prediction = net.run({ power: 1780, temperature: 95.5, accelerometer: 1.8120 });
 ```
 
-##### Long Short-Term Memory
+- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticSmokeTest/SynapticSmokeTest.js) and you can refer to the [**Official Documentation**](https://github.com/cazala/synaptic) of that library to explore more options that you can use.  
 
-This is how you can create a simple **long short-term memory** network with input gate, forget gate, output gate, and peephole connections:
+## Assets
 
-![long short-term memory](http://people.idsia.ch/~juergen/lstmcell4.jpg)
+### Libraries 
 
-```javascript
-function LSTM(input, blocks, output)
-{
-	// create the layers
-	var inputLayer = new Layer(input);
-	var inputGate = new Layer(blocks);
-	var forgetGate = new Layer(blocks);
-	var memoryCell = new Layer(blocks);
-	var outputGate = new Layer(blocks);
-	var outputLayer = new Layer(output);
+| Library  | Description  | Official Documentation |   
+|---|---|---|
+| ``` Synaptic ```  | A Library to Implement Neural Networks | https://github.com/cazala/synaptic  | 
 
-	// connections from input layer
-	var input = inputLayer.project(memoryCell);
-	inputLayer.project(inputGate);
-	inputLayer.project(forgetGate);
-	inputLayer.project(outputGate);
+### Code Services
 
-	// connections from memory cell
-	var output = memoryCell.project(outputLayer);
-
-	// self-connection
-	var self = memoryCell.project(memoryCell);
-
-	// peepholes
-	memoryCell.project(inputGate);
-	memoryCell.project(forgetGate);
-	memoryCell.project(outputGate);
-
-	// gates
-	inputGate.gate(input, Layer.gateType.INPUT);
-	forgetGate.gate(self, Layer.gateType.ONE_TO_ONE);
-	outputGate.gate(output, Layer.gateType.OUTPUT);
-
-	// input to output direct connection
-	inputLayer.project(outputLayer);
-
-	// set the layers of the neural network
-	this.set({
-		input: inputLayer,
-		hidden: [inputGate, forgetGate, memoryCell, outputGate],
-		output: outputLayer
-	});
-}
-
-// extend the prototype chain
-LSTM.prototype = new Network();
-LSTM.prototype.constructor = LSTM;
-```
-
-These are examples for explanatory purposes, the [Architect](https://github.com/cazala/synaptic/wiki/Architect/) already includes Multilayer Perceptrons and
-Multilayer LSTM network architectures.
+``` SynapticSmokeTest ``` : A code service to show working of Synaptic Library.
