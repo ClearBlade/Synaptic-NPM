@@ -106,7 +106,7 @@ Follow these [steps](https://github.com/ClearBlade/Machine-Learning-Node-Librari
   });
 ```
 
-- Define a new trainer and start training the model.
+- Define a new trainer and start training the model. Different options for training the model are given [here](https://github.com/cazala/synaptic/wiki/Trainer#train)
 
 ``` javascript
    var myTrainer = new Trainer(myNetwork);
