@@ -1,6 +1,6 @@
 {
   "author": "Rajas Deshpande <rdeshpande@clearblade.com>",
-  "description": "Synaptic NPM",
+  "description": "Synaptic",
   "asset_types": [
     "System",
     "Code Libraries",
@@ -34,7 +34,7 @@
   ],
   "protocols": [],
   "gateways": [],
-  "name": "Synaptic-NPM",
+  "name": "Synaptic",
   "private": false,
   "image_url": "https://i.imgur.com/Mh9s7c5.png",
   "dependencies": {
@@ -46,12 +46,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ClearBlade/Synaptic-NPM"
+    "url": "https://github.com/ClearBlade/Synaptic"
   },
   "bugs": {
-    "url": "https://github.com/ClearBlade/Synaptic-NPM"
+    "url": "https://github.com/ClearBlade/Synaptic"
   },
-  "homepage": "https://github.com/ClearBlade/Synaptic-NPM",
+  "homepage": "https://github.com/ClearBlade/Synaptic",
   "devDependencies": {
     "jsdoc-to-markdown": "^4.0.1"
   }
