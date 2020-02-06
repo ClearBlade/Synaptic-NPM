@@ -45,84 +45,88 @@ Follow these [steps](https://github.com/ClearBlade/Machine-Learning-Node-Librari
 
 - This IPM package consists of a Neural Networks Library that can be imported in the ClearBlade Platform in order to train and test machine learning models on the platform.
 
-- This library currently supports implementation of 8 types of neural networks which are
-  - brain.NeuralNetwork - Feedforward Neural Network with backpropagation
-  - brain.NeuralNetworkGPU - Feedforward Neural Network with backpropagation, GPU version
-  - brain.recurrent.RNNTimeStep - Time Step Recurrent Neural Network or "RNN"
-  - brain.recurrent.LSTMTimeStep - Time Step Long Short Term Memory Neural Network or "LSTM"
-  - brain.recurrent.GRUTimeStep - Time Step Gated Recurrent Unit or "GRU"
-  - brain.recurrent.RNN - Recurrent Neural Network or "RNN"
-  - brain.recurrent.LSTM - Long Short Term Memory Neural Network or "LSTM"
-  - brain.recurrent.GRU - Gated Recurrent Unit or "GRU"
-  - [Why different types of Neural Networks?](https://github.com/BrainJS/brain.js#why-different-neural-network-types)
-
-- A brief tutorial about how to design neural networks with the Brain-JS library can be found [here](https://scrimba.com/g/gneuralnetworks)
-
-- The following code snippet loads the Brain JS library and allows your code to access functionality of the library APIs via the **brain** variable.
+- Before defining the neural network model, we first define the training data. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
 
 ``` javascript
-  var brain = BrainJS();
+   var trainingData = [
+    { input: [1350, 73.4, 0.0683], output: [0] }, 
+    { input: [1350, 73.4, 0.0685], output: [0] }, 
+    { input: [1532, 83.1, 0.5272], output: [0] }, 
+    { input: [1710, 77.3, 1.7210], output: [1] },
+    { input: [1200, 76.6, 0.0688], output: [0] },
+    { input: [1820, 82.1, 0.4333], output: [1] },
+    { input: [1421, 75.4, 0.0695], output: [0] },
+    { input: [1800, 95.1, 1.9000], output: [1] },
+    { input: [1520, 82.4, 0.4272], output: [0] },
+    { input: [1740, 95.0, 1.7150], output: [1] },
+  ];
 ```
 
-- Once we define the **brain** variable, we configure the neural networks by providing different hyperparameters. The hyperparameters can be adjusted according to the user to get the best classification accuracy. There are different hyperparameters that can be provided. 
-  - In this example, we have provided two hyperparameters viz. **activation** which introduces non-linearity. There are currently four supported activation functions: sigmoid (default), relu, leaky-relu, tanh. 
-  -  The second hyperparameter is **hiddenLayers** which defines the number of neurons in the hidden layers. In this case, there are 2 hidden layers and there are 64 neurons in the first layer and 128 neurons in the second layer.
+- After defining the data, load the Synaptic library. The following snippet loads the library and allows your code to access functionality of the library APIs via the **synaptic** variable.
 
 ``` javascript
-  var net = new brain.NeuralNetwork({
-    activation: "relu",
-    hiddenLayers: [64, 128]
+  var synaptic = getSynaptic();
+```
+
+- Once we define the **synaptic** variable, we define the Layer, Network and Trainer objects which will be essentially used for defining the layers, configuring the neural network and training the model.
+
+``` javascript
+  var Layer = synaptic.Layer;
+  var Network = synaptic.Network;
+  var Trainer = synaptic.Trainer;
+```
+
+- Define the number of neurons and the number of layers to be used in the neural network.
+
+``` javascript
+  var input_neurons = 3;
+  var hidden_neurons = 64;
+  var output_neurons = 1;
+  
+  // Define Layers
+  var inputLayer = new Layer(input_neurons);
+  var hiddenLayer = new Layer(hidden_neurons);
+  var outputLayer = new Layer(output_neurons); 
+```
+
+- Connect the layers with each other.
+
+``` javascript
+  inputLayer.project(hiddenLayer);
+  hiddenLayer.project(outputLayer);
+```
+ 
+- Define a neural network. 
+
+``` javascript
+   var myNetwork = new Network({
+    input: inputLayer,
+    hidden: [hiddenLayer],
+    output: outputLayer
   });
 ```
 
-- More options for hyperparameters can be found [here](https://github.com/BrainJS/brain.js#examples). 
- 
-- After configuring the neural network, the training data can be set up as shown below. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
+- Define a new trainer and start training the model.
 
 ``` javascript
-  var trainingData = [
-    { input : { power: 1350, temperature: 73.4, accelerometer: 0.0683 }, output: { not_required : 0 } },
-    { input : { power: 1350, temperature: 73.4, accelerometer: 0.0685 }, output: { not_required : 0 } }, 
-    { input : { power: 1532, temperature: 83.1, accelerometer: 0.5272 }, output: { not_required : 0 } },
-    { input : { power: 1710, temperature: 77.3, accelerometer: 1.7210 }, output: { required : 1 } }, 
-    { input : { power: 1200, temperature: 76.6, accelerometer: 0.0688 }, output: { not_required : 0 } },
-    { input : { power: 1820, temperature: 82.1, accelerometer: 0.4333 }, output: { required : 1 } },
-    { input : { power: 1421, temperature: 75.4, accelerometer:0.0695 }, output: { not_required : 0 } },
-    { input : { power: 1800, temperature: 95.1, accelerometer: 1.9000 }, output: { required : 1 } },
-    { input : { power: 1520, temperature: 82.4, accelerometer: 0.4272 }, output: { not_required : 0 } },
-    { input : { power: 1740, temperature: 95.0, accelerometer: 1.7150 }, output: { required : 1 } },
-  ]
-```
-
-- Using this training data, train the classifier as follows. Different training options that can be given are prrovided [here](https://github.com/BrainJS/brain.js#training-options)
-
-``` javascript
-  net.train( 
-    trainingData,     
-    {
-      iterations: 100,
-      learningRate: 0.1,
-      log: true,
-      logPeriod: 10
-    }
-  );
-```
-
-- The output after training of the model:
-
-```
-{
-  error: 0.0039139985510105032,  // training error
-  iterations: 406                // training iterations
-}
+   var myTrainer = new Trainer(myNetwork);
+   
+   myTrainer.train(trainingData, {
+    rate: 0.01,
+    iterations: 2000,
+    error: 0.1,
+    shuffle: true,
+    log: 1,
+    cost: Trainer.cost.CROSS_ENTROPY
+  });
 ```
 
 - Once the classifer is trained, predict for a given set of sensor values, if a maintenance is required or not.
 ``` javascript
-  var prediction = net.run({ power: 1780, temperature: 95.5, accelerometer: 1.8120 });
+  var prediction = myNetwork.activate([1780, 95.5, 1.8120])
 ```
 
-- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticSmokeTest/SynapticSmokeTest.js) and you can refer to the [**Official Documentation**](https://github.com/cazala/synaptic) of that library to explore more options that you can use.  
+- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticSmokeTest/SynapticSmokeTest.js) and you can refer to the [**Official Documentation**](http://caza.la/synaptic/#/) of that library to explore more options that you can use.  
 
 ## Assets
 
