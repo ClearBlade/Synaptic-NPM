@@ -18,7 +18,7 @@ If you have no prior knowledge about Neural Networks, you should start by readin
 
 If you want a practical example on how to feed data to a neural network, then take a look at this [article](https://github.com/cazala/synaptic/wiki/Normalization-101).
 
-[Neural Networks of JavaScript] (https://webkid.io/blog/neural-networks-in-javascript/)
+[Neural Networks of JavaScript](https://webkid.io/blog/neural-networks-in-javascript/)
 
 This is an ipm package, which contains one or more reusable assets within the ipm Community. The 'package.json' in this repo is a ipm spec's package.json, [here](https://docs.clearblade.com/v/3/6-ipm/spec), which is a superset of npm's package.json spec, [here](https://docs.npmjs.com/files/package.json).
 
