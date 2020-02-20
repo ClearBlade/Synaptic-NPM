@@ -5,7 +5,7 @@
     "dependencies": "log,SynapticLibrary",
     "execution_timeout": 60,
     "logging_enabled": true,
-    "name": "SynapticSmokeTest",
+    "name": "SynapticExample",
     "params": [
         "{}"
     ],

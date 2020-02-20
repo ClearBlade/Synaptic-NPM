@@ -122,19 +122,19 @@ https://github.com/ClearBlade/brain-js
   var prediction = myNetwork.activate([1780, 95.5, 1.8120])
 ```
 
-- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticSmokeTest/SynapticSmokeTest.js) and you can refer to the [**Official Documentation**](http://caza.la/synaptic/#/) of that library to explore more options that you can use.  
+- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticExample/SynapticExample.js) and you can refer to the [**Official Documentation**](http://caza.la/synaptic/#/) of that library to explore more options that you can use.  
 
 ## Assets
 
 ### Libraries 
 
-| Library  | Description  | Official Documentation |   
-|---|---|---|
-| ``` Synaptic ```  | A Library to Implement Neural Networks | https://github.com/cazala/synaptic  | 
+| Library          | Description                            | Official Documentation             |
+| ---------------- | -------------------------------------- | ---------------------------------- |
+| ``` Synaptic ``` | A Library to Implement Neural Networks | https://github.com/cazala/synaptic |
 
 ### Code Services
 
-``` SynapticSmokeTest ``` : A code service to show working of Synaptic Library.
+``` SynapticExample ``` : A code service to show working of Synaptic Library.
 
 ## Advanced
 
